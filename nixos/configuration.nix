@@ -336,6 +336,7 @@
       ])
       ++ [
         fh.packages.${system}.default
+        # inputs.zen-browser.packages.${system}.specific
         # inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
         # inputs.nix-software-center.packages.${system}.nix-software-center
         # pkgs.linuxPackages.nvidia_x11
