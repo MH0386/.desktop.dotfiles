@@ -197,7 +197,7 @@
     gnome.sushi.enable = true;
   };
 
-  qt.enable = true;
+  # qt.enable = true;
 
   hardware.enableAllFirmware = true;
   # Enable sound with pipewire.
@@ -242,7 +242,7 @@
 
   programs = {
     zsh.enable = true;
-    evolution.enable = true;
+    # evolution.enable = true;
     # firefox.enable = true;
     nix-ld.enable = true;
     # Hyperland
