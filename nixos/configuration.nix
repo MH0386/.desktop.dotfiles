@@ -89,8 +89,6 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  # services.displayManager.sddm.autoNumlock = false;
-
   services = {
     flatpak = {
       enable = true;
@@ -236,12 +234,6 @@
     ];
   };
 
-  programs.zsh.enable = true;
-
-  #   # Enable automatic login for the user.
-  #   services.displayManager.autoLogin.enable = true;
-  #   services.xserver.displayManager.autoLogin.user = "mohamed";
-
   nixpkgs = {
     # Allow unfree packages
     config.allowUnfree = true;
@@ -249,6 +241,7 @@
   };
 
   programs = {
+    zsh.enable = true;
     evolution.enable = true;
     # firefox.enable = true;
     nix-ld.enable = true;
@@ -309,7 +302,7 @@
         libgcc
         gnumake
         libtool
-        dbus
+        #dbus
         packagekit
         lshw-gui
         lshw
@@ -318,10 +311,6 @@
         gnome-extension-manager
         gnome-extensions-cli
         gnome-tweaks
-        # kdePackages.kpmcore
-        # kdePackages.partitionmanager
-        # kdePackages.plasma-disks
-        # kdePackages.kidentitymanagement
         ntfs3g
         qemu_kvm
         qemu_full
@@ -335,8 +324,8 @@
         gst-libav
       ])
       ++ [
-        fh.packages.${system}.default
-        # inputs.zen-browser.packages.${system}.specific
+        # fh.packages.${system}.default
+        inputs.zen-browser.packages.${system}.specific
         # inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
         # inputs.nix-software-center.packages.${system}.nix-software-center
         # pkgs.linuxPackages.nvidia_x11

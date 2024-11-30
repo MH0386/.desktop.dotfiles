@@ -158,7 +158,6 @@
       kdePackages.kget
       nextcloud-client
       gnome-boxes
-
       # gitbutler
     ];
     sessionPath = [
@@ -166,7 +165,7 @@
       "${config.home.homeDirectory}/Android/Sdk/cmdline-tools/latest/bin"
     ];
     sessionVariables = {
-      # ANDROID_HOME = "${config.home.homeDirectory}/Android/Sdk";
+      ANDROID_HOME = "${config.home.homeDirectory}/Android/Sdk";
       GSK_RENDERER = "ngl";
       CONDA_PREFIX = "${config.home.homeDirectory}/.pixi/envs/default";
       PIXI_IN_SHELL = "1";
