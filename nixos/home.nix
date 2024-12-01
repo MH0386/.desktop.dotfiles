@@ -31,7 +31,7 @@
   };
 
   # Wayland, X, etc. support for session vars
-  systemd.user.sessionVariables = config.home-manager.users.mohamed.home.sessionVariables;
+  # systemd.user.sessionVariables = config.home-manager.users.mohamed.home.sessionVariables;
 
   xdg = {
     enable = true;
@@ -42,6 +42,7 @@
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
+      config.common.default = "gtk";
     };
   };
 

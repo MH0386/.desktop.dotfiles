@@ -37,8 +37,13 @@
       # "nvidia_modeset"
       # "nvidia"
     ];
+    kernelParams = [
+      "apparmor=1"
+      "security=apparmor"
+    ];
+    kernelModules = [ "apparmor" ];
     # extraModulePackages = [ pkgs.linuxPackages.nvidia_x11 ];
-    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -89,7 +94,19 @@
     defaultLocale = "en_US.UTF-8";
   };
 
+  security.apparmor = {
+    enable = true;
+    policies.dummy.profile = ''
+      /dummy {
+      }
+    '';
+  };
   services = {
+    avahi = {
+      enable = true;
+      publish.enable = true;
+    };
+    # snap.enable = true;
     flatpak = {
       enable = true;
       #remotes = lib.mkOptionDefault [
@@ -192,7 +209,17 @@
       displayManager.gdm.enable = true;
     };
     # Enable CUPS to print documents.
-    printing.enable = true;
+    printing = {
+      enable = true;
+      listenAddresses = [ "*:631" ];
+      allowFrom = [ "all" ];
+      browsing = true;
+      defaultShared = true;
+      openFirewall = true;
+      drivers = [
+        pkgs.stablePackages.hplipWithPlugin
+      ];
+    };
     gnome.sushi.enable = true;
   };
 
@@ -314,6 +341,20 @@
         qemu_kvm
         qemu_full
       ])
+      ++ (with pkgs.stablePackages; [
+        cups
+        cups-filters
+        ghostscript
+        sane-backends
+        sane-frontends
+        python3Packages.notify2
+        dbus
+        python3Packages.reportlab
+        libjpeg
+        libusb
+        python311Packages.pygobject3
+        python311Packages.pydbus
+      ])
       ++ (with pkgs.stablePackages.gst_all_1; [
         gstreamer
         gst-plugins-base
@@ -356,6 +397,12 @@
   };
 
   hardware = {
+    sane = {
+      enable = true; # Enable SANE scanning support.
+      extraBackends = [
+        pkgs.stablePackages.hplipWithPlugin
+      ];
+    };
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -420,10 +467,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # List services that you want to enable:
 

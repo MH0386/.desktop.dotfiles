@@ -25,6 +25,10 @@
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-snapd = {
+      url = "github:nix-community/nix-snapd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -34,6 +38,7 @@
       fh,
       nix-flatpak,
       home-manager,
+      nix-snapd,
       ...
     }@inputs:
     let
@@ -49,6 +54,7 @@
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
           home-manager.nixosModules.home-manager
+          nix-snapd.nixosModules.default
           ./nixos/configuration.nix
         ];
         specialArgs = {
