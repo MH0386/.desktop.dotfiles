@@ -7,6 +7,31 @@
 
 {
   imports = [ ];
+  dconf.settings = {
+    # "org/gnome/desktop/background" = {
+    #   picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
+    # };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita Dark";
+      package = pkgs.gnome-themes-extra;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+  };
+
+  # Wayland, X, etc. support for session vars
+  systemd.user.sessionVariables = config.home-manager.users.mohamed.home.sessionVariables;
 
   xdg = {
     enable = true;
@@ -16,7 +41,6 @@
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
-        # xdg-desktop-portal-kde
       ];
     };
   };
@@ -120,6 +144,7 @@
     kdeconnect = {
       enable = true;
       indicator = true;
+      package = pkgs.gnomeExtensions.gsconnect;
     };
   };
 
@@ -159,6 +184,9 @@
       nextcloud-client
       gnome-boxes
       shotwell
+      gnome-contacts
+      bitwarden-cli
+      bitwarden-desktop
       # gitbutler
     ];
     sessionPath = [
@@ -167,7 +195,7 @@
     ];
     sessionVariables = {
       ANDROID_HOME = "${config.home.homeDirectory}/Android/Sdk";
-      GSK_RENDERER = "ngl";
+      # GSK_RENDERER = "ngl";
       CONDA_PREFIX = "${config.home.homeDirectory}/.pixi/envs/default";
       PIXI_IN_SHELL = "1";
       PIXI_PROJECT_NAME = "default";
