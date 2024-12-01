@@ -139,6 +139,9 @@
     ssh = {
       enable = true;
     };
+    fzf = {
+      enable = true;
+    };
   };
 
   services = {
@@ -188,6 +191,7 @@
       gnome-contacts
       bitwarden-cli
       bitwarden-desktop
+      gimp-with-plugins
       # gitbutler
     ];
     sessionPath = [

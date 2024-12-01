@@ -176,12 +176,14 @@
         "io.github.getnf.embellish"
         "com.github.cassidyjames.dippi"
         "it.mijorus.whisper"
-        # "io.github.zen_browser.zen"
+        "io.github.zen_browser.zen"
         # "com.github.joseexposito.touche"
         "com.ranfdev.Geopard"
         # "it.mijorus.gearlever"
         "io.github.vikdevelop.SaveDesktop"
         "org.fedoraproject.MediaWriter"
+        "io.github.realmazharhussain.GdmSettings"
+        "com.mattjakeman.ExtensionManager"
       ];
     };
     fwupd.enable = true;
@@ -334,7 +336,6 @@
         lshw
         libsForQt5.full
         nvtopPackages.nvidia
-        gnome-extension-manager
         gnome-extensions-cli
         gnome-tweaks
         ntfs3g
@@ -343,6 +344,7 @@
       ])
       ++ (with pkgs.stablePackages; [
         cups
+        xsane
         cups-filters
         ghostscript
         sane-backends
@@ -354,6 +356,7 @@
         libusb
         python311Packages.pygobject3
         python311Packages.pydbus
+        # gnome-extension-manager
       ])
       ++ (with pkgs.stablePackages.gst_all_1; [
         gstreamer
@@ -402,6 +405,8 @@
       extraBackends = [
         pkgs.stablePackages.hplipWithPlugin
       ];
+      openFirewall = true;
+      backends-package = pkgs.stablePackages.sane-backends;
     };
     bluetooth = {
       enable = true;
