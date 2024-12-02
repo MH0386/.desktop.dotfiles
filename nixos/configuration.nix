@@ -264,7 +264,10 @@
 
   nixpkgs = {
     # Allow unfree packages
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      android_sdk.accept_license = true;
+    };
     overlays = [ (self: super: { stablePackages = pkgsStable; }) ];
   };
 

@@ -151,7 +151,6 @@
       package = pkgs.gnomeExtensions.gsconnect;
     };
   };
-
   home = {
     packages = with pkgs; [
       google-chrome
@@ -169,6 +168,7 @@
       flutterPackages.stable
       jetbrains.idea-ultimate
       jetbrains.pycharm-professional
+      android-studio-full
       audacity
       spacedrive
       zed-editor
