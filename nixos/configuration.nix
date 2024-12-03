@@ -153,7 +153,6 @@
         "com.mardojai.ForgeSparks"
         "com.gitbutler.gitbutler"
         "io.github.dvlv.boxbuddyrs"
-        "app.devsuite.Ptyxis"
         "com.github.tchx84.Flatseal"
         "com.quexten.Goldwarden"
         "com.belmoussaoui.snowglobe"
@@ -344,6 +343,8 @@
         ntfs3g
         qemu_kvm
         qemu_full
+        ddcui
+        ddcutil
       ])
       ++ (with pkgs.stablePackages; [
         cups

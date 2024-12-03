@@ -37,11 +37,15 @@
     enable = true;
     dataHome = "${config.home.homeDirectory}/.local/share";
     mime.enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "x-scheme-handler/terminal" = "org.gnome.Ptyxis.desktop";
+      };
+    };
     portal = {
       enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-      ];
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
       config.common.default = "gtk";
     };
   };
@@ -168,7 +172,9 @@
       flutterPackages.stable
       jetbrains.idea-ultimate
       jetbrains.pycharm-professional
-      android-studio-full
+      # android-studio-full
+      android-studio-tools
+      android-studio
       audacity
       spacedrive
       zed-editor
@@ -194,6 +200,7 @@
       gimp-with-plugins
       firefoxpwa
       beeper
+      ptyxis
       # gitbutler
     ];
     sessionPath = [
