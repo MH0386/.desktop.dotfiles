@@ -55,7 +55,7 @@
     useUserPackages = true;
     users.mohamed = import ./home.nix;
     extraSpecialArgs = { };
-    backupFileExtension = "backup";
+    backupFileExtension = "old";
   };
 
   networking = {
@@ -250,7 +250,7 @@
   users.users.mohamed = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    description = "Mohamed";
+    description = "Mohamed Hisham";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -310,15 +310,23 @@
         };
       */
     };
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "ptyxis";
+    };
   };
 
   fonts.packages = with pkgs; [ monaspace ];
   console.packages = with pkgs; [ monaspace ];
 
   environment = {
+    sessionVariables = {
+      NAUTILUS_4_EXTENSION_DIR = lib.mkDefault "${pkgs.stablePackages.nautilus-python}/lib/nautilus/extensions-4";
+    };
     pathsToLink = [
       "/share/xdg-desktop-portal"
       "/share/applications"
+      "/share/nautilus-python/extensions"
     ];
     localBinInPath = true;
     homeBinInPath = true;
@@ -347,6 +355,7 @@
         ddcutil
       ])
       ++ (with pkgs.stablePackages; [
+        nautilus-python
         cups
         xsane
         cups-filters
