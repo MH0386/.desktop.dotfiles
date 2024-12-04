@@ -60,7 +60,6 @@
         pull.rebase = false;
       };
     };
-    git-credential-oauth.enable = true;
     bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [
