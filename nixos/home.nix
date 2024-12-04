@@ -56,7 +56,11 @@
       enable = true;
       userName = "Mohamed Hisham Abdelzaher";
       userEmail = "mohamed.hisham.abdelzaher@gmail.com";
+      extraConfig = {
+        pull.rebase = false;
+      };
     };
+    git-credential-oauth.enable = true;
     bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [
@@ -146,6 +150,10 @@
     fzf = {
       enable = true;
     };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
 
   services = {
@@ -173,7 +181,7 @@
       jetbrains.idea-ultimate
       jetbrains.pycharm-professional
       # android-studio-full
-      android-studio-tools
+      # android-studio-tools
       android-studio
       audacity
       spacedrive
@@ -208,7 +216,7 @@
       "${config.home.homeDirectory}/Android/Sdk/cmdline-tools/latest/bin"
     ];
     sessionVariables = {
-      # ANDROID_HOME = "${config.home.homeDirectory}/Android/Sdk";
+      ANDROID_HOME = "${config.home.homeDirectory}/Android/Sdk";
       # GSK_RENDERER = "ngl";
       CONDA_PREFIX = "${config.home.homeDirectory}/.pixi/envs/default";
       PIXI_IN_SHELL = "1";

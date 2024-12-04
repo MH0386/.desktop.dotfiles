@@ -13,10 +13,16 @@
     substituters = [
       "https://cuda-maintainers.cachix.org"
       "https://nix-community.cachix.org"
+      "https://devenv.cachix.org"
     ];
     trusted-public-keys = [
       "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+    ];
+    trusted-users = [
+      "root"
+      "mohamed"
     ];
     experimental-features = [
       "flakes"
@@ -24,7 +30,6 @@
     ];
   };
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -55,7 +60,7 @@
     useUserPackages = true;
     users.mohamed = import ./home.nix;
     extraSpecialArgs = { };
-    backupFileExtension = "old";
+    backupFileExtension = "Old";
   };
 
   networking = {
@@ -119,6 +124,7 @@
       update.onActivation = true;
       packages = [
         "io.github._0xzer0x.qurancompanion"
+        "io.github.ladaapp.lada"
         "io.github.giantpinkrobots.flatsweep"
         "io.github.lo2dev.Echo"
         "io.github.flattool.Warehouse"
@@ -353,9 +359,11 @@
         qemu_full
         ddcui
         ddcutil
+        devenv
+        nautilus
+        nautilus-python
       ])
       ++ (with pkgs.stablePackages; [
-        nautilus-python
         cups
         xsane
         cups-filters
@@ -366,7 +374,7 @@
         dbus
         python3Packages.reportlab
         libjpeg
-        libusb
+        # libusb
         python311Packages.pygobject3
         python311Packages.pydbus
         # gnome-extension-manager

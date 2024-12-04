@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nix-flatpak.url = "https://flakehub.com/f/gmodena/nix-flatpak/*.tar.gz";
     nix-software-center = {
       url = "github:snowfallorg/nix-software-center";
@@ -25,6 +25,10 @@
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    android-nixpkgs = {
+      url = "github:tadfisher/android-nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -34,6 +38,7 @@
       fh,
       nix-flatpak,
       home-manager,
+      android-nixpkgs,
       ...
     }@inputs:
     let
@@ -49,6 +54,7 @@
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
           home-manager.nixosModules.home-manager
+          # android-nixpkgs.hmModule
           ./nixos/configuration.nix
         ];
         specialArgs = {
