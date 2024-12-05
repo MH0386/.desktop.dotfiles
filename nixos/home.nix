@@ -19,7 +19,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Adwaita Dark";
+      name = "Adwaita-dark";
       package = pkgs.gnome-themes-extra;
     };
     gtk4.extraConfig = {
@@ -170,6 +170,7 @@
       package = pkgs.gnomeExtensions.gsconnect;
     };
   };
+
   home = {
     packages = with pkgs; [
       google-chrome
