@@ -153,6 +153,14 @@
       enable = true;
       nix-direnv.enable = true;
     };
+    # gradle = {
+    #   enable = true;
+    #   settings = {
+    #     "org.gradle.caching" = true;
+    #     "org.gradle.parallel" = true;
+    #     "org.gradle.home" = pkgs.jdk17;
+    #   };
+    # };
   };
 
   services = {
