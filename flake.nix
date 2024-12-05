@@ -25,10 +25,6 @@
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    android-nixpkgs = {
-      url = "github:tadfisher/android-nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -38,7 +34,6 @@
       fh,
       nix-flatpak,
       home-manager,
-      android-nixpkgs,
       ...
     }@inputs:
     let
@@ -54,7 +49,6 @@
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
           home-manager.nixosModules.home-manager
-          # android-nixpkgs.hmModule
           ./nixos/configuration.nix
         ];
         specialArgs = {
