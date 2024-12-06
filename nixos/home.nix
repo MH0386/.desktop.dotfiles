@@ -54,14 +54,14 @@
     home-manager.enable = true;
     git = {
       enable = true;
-      package = pkgs.gitFull;
       userName = "Mohamed Hisham Abdelzaher";
       userEmail = "mohamed.hisham.abdelzaher@gmail.com";
       extraConfig = {
         pull.rebase = false;
         credential = {
-          helper = "manager";
-          credentialStore = "cache";
+          helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        }/bin/git-credential-libsecret";
         };
       };
     };
@@ -205,7 +205,6 @@
       firefoxpwa
       beeper
       ptyxis
-      git-credential-manager
       # gitbutler
     ];
     sessionPath = [

@@ -60,7 +60,9 @@
     useUserPackages = true;
     users.mohamed = import ./home.nix;
     extraSpecialArgs = { };
-    backupFileExtension = "Old";
+    backupFileExtension =
+      "backup-"
+      + pkgs.lib.readFile "${pkgs.runCommand "timestamp" { } "echo -n `date '+%Y%m%d%H%M%S'` > $out"}";
   };
 
   networking = {
