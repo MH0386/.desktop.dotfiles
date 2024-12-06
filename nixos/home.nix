@@ -153,22 +153,6 @@
       enable = true;
       nix-direnv.enable = true;
     };
-    # gradle = {
-    #   enable = true;
-    #   settings = {
-    #     "org.gradle.caching" = true;
-    #     "org.gradle.parallel" = true;
-    #     "org.gradle.home" = pkgs.jdk17;
-    #   };
-    # };
-  };
-
-  services = {
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-      package = pkgs.gnomeExtensions.gsconnect;
-    };
   };
 
   home = {
@@ -206,7 +190,6 @@
       kubernetes
       kompose
       warp-terminal
-      kdePackages.kget
       nextcloud-client
       gnome-boxes
       shotwell
