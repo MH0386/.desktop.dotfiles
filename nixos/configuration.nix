@@ -230,8 +230,6 @@
     gnome.sushi.enable = true;
   };
 
-  # qt.enable = true;
-
   hardware.enableAllFirmware = true;
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
