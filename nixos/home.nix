@@ -221,7 +221,11 @@
     ];
     sessionPath = [
       "${config.home.homeDirectory}/.pixi/envs/default/bin"
+      "${config.home.homeDirectory}/Android/Sdk/platform-tools"
+      "${config.home.homeDirectory}/Android/Sdk/tools/bin"
       "${config.home.homeDirectory}/Android/Sdk/cmdline-tools/latest/bin"
+      "${config.home.homeDirectory}/Android/Sdk/emulator"
+      "${config.home.homeDirectory}/Android/Sdk/emulator/bin64"
     ];
     sessionVariables = {
       ANDROID_HOME = "${config.home.homeDirectory}/Android/Sdk";
