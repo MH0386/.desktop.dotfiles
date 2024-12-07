@@ -2,9 +2,9 @@
   config,
   lib,
   pkgs,
-  inputs,
-  system,
-  fh,
+  # inputs,
+  # system,
+  # fh,
   pkgsStable,
   ...
 }:

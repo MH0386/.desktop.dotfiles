@@ -205,6 +205,7 @@
       firefoxpwa
       beeper
       ptyxis
+      yq
       # gitbutler
     ];
     sessionPath = [
