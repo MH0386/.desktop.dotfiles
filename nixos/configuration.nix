@@ -264,6 +264,7 @@
       "render"
       "adbusers"
       "libvirtd"
+      "podman"
     ];
   };
 
