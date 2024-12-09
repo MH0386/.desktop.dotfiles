@@ -59,9 +59,7 @@
       extraConfig = {
         pull.rebase = false;
         credential = {
-          helper = "${
-          pkgs.git.override { withLibsecret = true; }
-        }/bin/git-credential-libsecret";
+          helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
         };
       };
     };
@@ -162,6 +160,7 @@
 
   home = {
     packages = with pkgs; [
+      microsoft-edge
       google-chrome
       ffmpeg
       code-cursor

@@ -310,12 +310,10 @@
     nh = {
       enable = true;
       flake = "/home/mohamed/.dotfiles";
-      /*
-        clean = {
-          enable = true;
-          extraArgs = "--keep 5";
-        };
-      */
+      clean = {
+        enable = true;
+        extraArgs = "--keep 5";
+      };
     };
     nautilus-open-any-terminal = {
       enable = true;
