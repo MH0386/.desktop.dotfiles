@@ -205,6 +205,7 @@
       beeper
       ptyxis
       yq-go
+      rustup
       # gitbutler
     ];
     sessionPath = [
