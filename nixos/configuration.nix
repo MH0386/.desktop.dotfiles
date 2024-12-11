@@ -279,7 +279,6 @@
 
   programs = {
     zsh.enable = true;
-    bash.enable = true;
     # evolution.enable = true;
     # firefox.enable = true;
     nix-ld.enable = true;
