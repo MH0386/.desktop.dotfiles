@@ -82,6 +82,7 @@
       enable = true;
       autosuggestion.enable = true;
     };
+    bash.enable = true;
     gh.enable = true;
     jq.enable = true;
     java = {
