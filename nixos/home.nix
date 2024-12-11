@@ -206,6 +206,8 @@
       ptyxis
       yq-go
       rustup
+      sqlite
+      sqlitestudio
       # gitbutler
     ];
     sessionPath = [
