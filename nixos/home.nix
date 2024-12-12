@@ -209,6 +209,7 @@
       rustup
       sqlite
       sqlitestudio
+      apksigner
       # gitbutler
     ];
     sessionPath = [
