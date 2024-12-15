@@ -58,6 +58,7 @@
       userEmail = "mohamed.hisham.abdelzaher@gmail.com";
       extraConfig = {
         pull.rebase = false;
+        init.defaultBranch = "main";
         credential = {
           helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
         };
@@ -174,7 +175,7 @@
       autoflake
       fastlane
       act
-      flutterPackages.stable
+      flutterPackages.beta
       jetbrains.idea-ultimate
       jetbrains.pycharm-professional
       # android-studio-full
@@ -210,11 +211,11 @@
       sqlite
       sqlitestudio
       apksigner
-      poetry
-      poetryPlugins.poetry-plugin-up
-      poetryPlugins.poetry-audit-plugin
-      poetryPlugins.poetry-plugin-export
-      poetryPlugins.poetry-plugin-poeblix
+      # poetry
+      # poetryPlugins.poetry-plugin-up
+      # poetryPlugins.poetry-audit-plugin
+      # poetryPlugins.poetry-plugin-export
+      # poetryPlugins.poetry-plugin-poeblix
       # gitbutler
     ];
     sessionPath = [
