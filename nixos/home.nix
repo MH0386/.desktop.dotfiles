@@ -210,6 +210,11 @@
       sqlite
       sqlitestudio
       apksigner
+      poetry
+      poetryPlugins.poetry-plugin-up
+      poetryPlugins.poetry-audit-plugin
+      poetryPlugins.poetry-plugin-export
+      poetryPlugins.poetry-plugin-poeblix
       # gitbutler
     ];
     sessionPath = [
