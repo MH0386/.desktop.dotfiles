@@ -4,7 +4,10 @@
   lib,
   ...
 }:
-
+let
+  # install fvm from github release in Nix in home manager from `https://github.com/leoafarias/fvm/releases/download/3.2.1/fvm-3.2.1-linux-x64.tar.gz`
+  fvm = import ./fvm.nix { inherit pkgs; };
+in
 {
   imports = [ ];
   dconf.settings = {
@@ -175,7 +178,7 @@
       autoflake
       fastlane
       act
-      flutterPackages.beta
+      # flutterPackages.beta
       jetbrains.idea-ultimate
       jetbrains.pycharm-professional
       # android-studio-full
@@ -211,6 +214,7 @@
       sqlite
       sqlitestudio
       apksigner
+      fvm
       # poetry
       # poetryPlugins.poetry-plugin-up
       # poetryPlugins.poetry-audit-plugin
