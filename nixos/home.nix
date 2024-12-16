@@ -10,9 +10,6 @@ in
 {
   imports = [ ];
   dconf.settings = {
-    # "org/gnome/desktop/background" = {
-    #   picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
-    # };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
@@ -41,9 +38,9 @@ in
     mime.enable = true;
     mimeApps = {
       enable = true;
-      defaultApplications = {
-        "x-scheme-handler/terminal" = "org.gnome.Ptyxis.desktop";
-      };
+      # defaultApplications = {
+      #   "x-scheme-handler/terminal" = "org.gnome.Ptyxis.desktop";
+      # };
     };
     portal = {
       enable = true;
