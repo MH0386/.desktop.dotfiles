@@ -5,8 +5,7 @@
   ...
 }:
 let
-  # install fvm from github release in Nix in home manager from `https://github.com/leoafarias/fvm/releases/download/3.2.1/fvm-3.2.1-linux-x64.tar.gz`
-  fvm = import ./fvm.nix { inherit pkgs; };
+  fvm = import ./apps/fvm/fvm.nix { inherit pkgs lib builtins; };
 in
 {
   imports = [ ];
